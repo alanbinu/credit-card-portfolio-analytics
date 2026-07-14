@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner/hero-banner.png" alt="Credit Card Portfolio Analytics & Risk Intelligence" width="100%">
+  <img src="./Images/hero-banner.png" width="100%" alt="Credit Card Portfolio Analytics & Risk Intelligence">
 </p>
 
 <div align="center">
