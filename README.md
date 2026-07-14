@@ -47,15 +47,13 @@ Transforming **150,000+ financial records** into executive ready business intell
 
 ---
 
----
-
-## The Problem
+## 🎯 Business Challenge
 
 Banks process millions of credit card transactions every day. Without centralized analytics, spotting a high-risk customer, tracking repayment behavior, or understanding spend trends means rebuilding a pivot table every time the question changes.
 
 By the time risk shows up in a delinquency report, it's already too late to act on it.
 
-## The Solution
+## 💡 Solution Overview
 
 A single Power BI model that turns four disconnected data sources — transactions, payments, utilization, risk assessments — into one governed source of truth.
 
@@ -79,7 +77,7 @@ Raw Excel/CSV → Power Query cleaning (including a real data-quality fix, detai
 
 ---
 
-## Four Dashboards, Four Decisions
+## 📊 Dashboard Suite
 
 | Page | Built For | Answers |
 |---|---|---|
@@ -92,7 +90,7 @@ Every page shares synced slicers (state, card, risk, date) and one-click navigat
 
 ---
 
-## Key KPIs
+## 📈 Business KPIs
 
 | KPI | Meaning | Why It Matters |
 |---|---|---|
@@ -131,7 +129,7 @@ All 33 live in a single disconnected Calculation Table — one place to find eve
 
 ---
 
-## Executive Insights
+## 💡 Executive Insights
 
 > Entry-level cards generate nearly half of total portfolio spend — **₹89.85M** of it.
 >
@@ -145,9 +143,9 @@ All 33 live in a single disconnected Calculation Table — one place to find eve
 
 ---
 
-## ⭐ Enterprise Star Schema Architecture
+## 🏛️ Enterprise Semantic Model Architecture
 
-The analytics platform follows a dimensional star schema designed for enterprise scale reporting. Business dimensions provide descriptive context, while the Enterprise Fact Layer captures every transactional event that powers analytics, KPI calculations, risk scoring, and executive dashboards.
+The analytics platform is built on a dimensional semantic model designed for enterprise scale analytics. Descriptive dimensions provide business context, while a centralized Enterprise Fact Layer captures transactional events that power KPI calculations, portfolio monitoring, customer intelligence, and executive reporting.
 
 <div align="center">
 
@@ -155,20 +153,13 @@ The analytics platform follows a dimensional star schema designed for enterprise
 
 </div>
 
-### Enterprise Fact Layer
+### Why This Architecture Matters
 
-The centralized fact layer consolidates over **50,000+ business events** across four analytical domains:
-
-- 💳 Transactions
-- 💰 Payments
-- 📈 Credit Utilization
-- ⚠️ Risk Assessment
-
-This architecture minimizes redundancy, improves query performance, and enables scalable analytics across customer, product, geography, channel, and time dimensions.
+This semantic model centralizes more than **50,000 business events** into a governed Enterprise Fact Layer. By separating descriptive dimensions from transactional facts, the model improves scalability, simplifies DAX development, reduces redundancy, and delivers consistent business definitions across every dashboard.
 
 ## Relationship Architecture
 
-The semantic model uses **single direction filtering** across the entire model, with one intentional exception for customer level risk analysis.
+The conceptual architecture above is implemented in Power BI using optimized relationship design. Single direction filtering is used throughout the semantic model to ensure predictable filter propagation, with one intentional bidirectional relationship supporting customer risk segmentation.
 
 | 💳 Fact Table | 🎯 Dimension Tables | 🔄 Cross Filter |
 |---------------|---------------------|-----------------|
@@ -180,33 +171,29 @@ The semantic model uses **single direction filtering** across the entire model, 
 `FactRiskProfile → DimCustomer` is intentionally bidirectional, allowing customer level slicers to interactively filter risk segmentation without affecting the rest of the semantic model.
 
 
+<div align="center">
+
 | Component | Count |
 |-----------|------:|
-| 🗂️ Total Tables | **9** |
+| 🗂 Total Tables | **9** |
 | 📘 Dimension Tables | **5** |
 | 📊 Fact Tables | **4** |
 | 🔗 Relationships | **11** |
-| ⚡ Data Model | **Star Schema** |
+| ⚡ Modeling Pattern | **Star Schema** |
+
+</div>
   
 ---
 
-🚀 Architecture Highlights
+## 🗺 Enterprise Relationship Model
 
-• Production Style Star Schema
+The following visualization illustrates the logical semantic model implemented in Power BI. Dimension tables provide descriptive business context while centralized fact tables capture transactional events that drive enterprise reporting and reusable DAX calculations.
 
-• Centralized Semantic Model
-
-• Optimized Filter Propagation
-
-• Reusable DAX Measure Layer
-
-• Enterprise Ready Reporting Architecture
-
-
+<div align="center">
 
 ![Data Model Diagram](./Images/05-data-model-diagram.png)
 
-*Rendered from the verified relationships extracted from the `.pbix` file — not a native Model-view screen capture.*
+</div>
 
 | Table | Rows | Grain |
 |---|---:|---|
@@ -220,11 +207,10 @@ The semantic model uses **single direction filtering** across the entire model, 
 | FactUtilization | 39,780 | One row per monthly snapshot |
 | FactRiskProfile | 36,000 | One row per monthly risk assessment |
 
-</details>
-
 <details>
-<summary><b>Power Query — one representative transformation</b></summary>
 
+<summary><b>⚙️ Data Preparation with Power Query</b></summary>
+  
 Every table is typed explicitly, never left to auto-detection. The one that matters most — a real data-quality fix in `FactRiskProfile`:
 
 ```m
@@ -240,17 +226,32 @@ A payment-to-spend ratio was also caught surfacing above 100% during validation 
 
 ---
 
-## Repository Structure
-├── Credit Card Analytics DashbBoard Project.pbix
-├── Credit_Card_Portfolio_Updated.pptx
-├── Dim*.csv.xlsx / Fact*.csv(.xlsx)          # 9 source tables
-└── Images/                                   # Banner, screenshots, model diagram
+## 📂 Repository Structure
 
-## Installation
+```text
+📦 Credit Card Portfolio Analytics
+│
+├── 📁 Images
+├── 📁 Data
+│   ├── Dimension Tables
+│   └── Fact Tables
+├── Credit Card Analytics Dashboard.pbix
+├── Credit_Card_Portfolio_Updated.pptx
+├── README.md
+└── LICENSE
+```
+
+
+## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/<your-username>/credit-card-portfolio-analytics.git
+git clone https://github.com/alanbinu/credit-card-portfolio-analytics.git
 ```
+
+1. Open the `.pbix` file in Microsoft Power BI Desktop.
+2. Update the Power Query source paths if prompted.
+3. Refresh the semantic model.
+4. Explore the interactive dashboards.
 
 Open the `.pbix` in Power BI Desktop → repoint the Power Query source files when prompted → Refresh.
 
@@ -258,25 +259,57 @@ Open the `.pbix` in Power BI Desktop → repoint the Power Query source files wh
 
 ---
 
-## What's Next
+## 🚀 Project Roadmap
 
-- **Row-Level Security** — regional managers see only their own state.
-- **Azure SQL / Microsoft Fabric** — move off local files permanently.
-- **Predictive scoring** — Python-based churn and risk models layered on top of today's descriptive view.
+• Implement Row Level Security (RLS)
+
+• Migrate data sources to Azure SQL or Microsoft Fabric
+
+• Configure Incremental Refresh
+
+• Build deployment pipelines
+
+• Integrate AI driven credit risk prediction
+
+• Implement automated data quality monitoring
 
 ---
 
-## About Me
+## 👨‍💻 About the Author
 
-Built independently as part of self-directed Business Intelligence portfolio work — star-schema modeling, production-style DAX, and dashboard design driven by audience, not just data.
-
-**Alan Binu**
-[GitHub](https://github.com/alanbinu) · [LinkedIn](https://linkedin.com/in/alanbinu) · alan.binu@example.com
-
----
+Developed independently as a portfolio project to demonstrate enterprise Business Intelligence development using Microsoft Power BI, Power Query, dimensional modeling, semantic model design, and production ready DAX.
 
 <div align="center">
 
-**MIT License** — see [LICENSE](./LICENSE)
+# Alan Binu
 
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/GitHub-alanbinu-181717?style=for-the-badge&logo=github)](https://github.com/alanbinu)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Alan%20Binu-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/alan-binu13)
+
+[![Gmail](https://img.shields.io/badge/Gmail-alanbinu306@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:alanbinu306@gmail.com)
+
+
+</div>
+
+---
+
+
+## ❤️ Thank You for Visiting
+
+Thank you for exploring this project and taking the time to review my work.
+
+Every visualization, DAX measure, data model, and design decision in this repository reflects my passion for Business Intelligence, analytics, and continuous learning.
+
+If this project inspired you, helped you, or you simply enjoyed exploring it, a ⭐ on the repository would mean a lot and motivates me to keep building, learning, and sharing more projects with the community.
+
+### 🌟 Happy Learning • Happy Building • Happy Analyzing 📊
+
+---
+
+**Made with ❤️, curiosity, and countless cups of coffee by Alan Binu**
+
+</div>
 </div>
