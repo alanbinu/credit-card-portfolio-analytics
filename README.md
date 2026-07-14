@@ -145,80 +145,64 @@ All 33 live in a single disconnected Calculation Table — one place to find eve
 
 ---
 
-# 🏛️ Enterprise Data Model
+## ⭐ Enterprise Star Schema Architecture
 
-<p align="center">
+The analytics platform follows a dimensional star schema designed for enterprise scale reporting. Business dimensions provide descriptive context, while the Enterprise Fact Layer captures every transactional event that powers analytics, KPI calculations, risk scoring, and executive dashboards.
 
-Production ready **Star Schema Architecture** designed for scalable analytics, centralized business logic, and high performance Power BI reporting.
+<div align="center">
 
-</p>
+![Enterprise Star Schema](./Images/07-enterprise-fact-layer.png)
 
-<p align="center">
-<img src="./Images/star-schema-architecture.png" width="100%" alt="Enterprise Star Schema Architecture">
-</p>
+</div>
 
-The semantic model follows a **Star Schema** architecture with **5 Dimension Tables**, **4 Fact Tables**, and **11 Relationships**, creating a governed analytical layer that supports reusable DAX measures, fast filtering, and enterprise scale reporting.
+### Enterprise Fact Layer
 
-Unlike a flat spreadsheet model, this design separates descriptive dimensions from transactional facts, improving performance, maintainability, and scalability.
+The centralized fact layer consolidates over **50,000+ business events** across four analytical domains:
 
-The Power BI semantic model is built using a **Star Schema** consisting of **5 Dimension Tables**, **4 Fact Tables**, and **11 Relationships**. This architecture centralizes business logic, improves query performance, and provides a scalable foundation for DAX calculations and interactive reporting.
+- 💳 Transactions
+- 💰 Payments
+- 📈 Credit Utilization
+- ⚠️ Risk Assessment
 
-### Architecture Summary
+This architecture minimizes redundancy, improves query performance, and enables scalable analytics across customer, product, geography, channel, and time dimensions.
 
-- 🗂️ **9 Tables**
-- 📘 **5 Dimension Tables**
-- 📊 **4 Fact Tables**
-- 🔗 **11 Relationships**
-- ⚡ **Production Ready Star Schema**
-  
-### Dimension Tables
+## Relationship Architecture
 
-- 👤 **DimCustomer**
-- 💳 **DimCard**
-- 📅 **DimDate**
-- 🏪 **DimMerchant**
-- 📂 **DimCategory**
+The semantic model uses **single direction filtering** across the entire model, with one intentional exception for customer level risk analysis.
 
-### Fact Tables
-
-- 💰 **FactTransactions**
-- 💳 **FactPayments**
-- 📈 **FactUtilization**
-- ⚠️ **FactRiskProfile**
-
----
-
-> 💡 Every Power BI report, KPI, and DAX measure in this project is powered by this centralized semantic model, ensuring consistent business logic across all dashboards.
-
-
-> The Star Schema separates descriptive attributes from transactional facts, enabling faster filtering, simpler DAX measures, and a governed semantic layer for enterprise reporting.
-
-
-5 dimension tables, 4 fact tables, joined on single-column keys with one deliberate exception:
-
-| From (Fact) | To (Dimension) | Cross-Filter |
-|---|---|---|
+| 💳 Fact Table | 🎯 Dimension Tables | 🔄 Cross Filter |
+|---------------|---------------------|-----------------|
 | FactTransactions | DimCustomer, DimCard, DimDate, DimMerchant, DimCategory | Single |
 | FactPayments | DimCustomer, DimCard, DimDate | Single |
 | FactUtilization | DimCustomer, DimCard | Single |
 | FactRiskProfile | DimCustomer | **Bidirectional** |
 
-`FactRiskProfile → DimCustomer` is intentionally bidirectional — the one page where a customer-level slicer needs to filter *back* into risk segments interactively.
+`FactRiskProfile → DimCustomer` is intentionally bidirectional, allowing customer level slicers to interactively filter risk segmentation without affecting the rest of the semantic model.
 
-```mermaid
-erDiagram
-    DimCustomer ||--o{ FactTransactions : CustomerID
-    DimCustomer ||--o{ FactPayments : CustomerID
-    DimCustomer ||--o{ FactUtilization : CustomerID
-    DimCustomer ||--o{ FactRiskProfile : "CustomerID (bidirectional)"
-    DimCard ||--o{ FactTransactions : CardID
-    DimCard ||--o{ FactPayments : CardID
-    DimCard ||--o{ FactUtilization : CardID
-    DimDate ||--o{ FactTransactions : DateID
-    DimDate ||--o{ FactPayments : DateID
-    DimMerchant ||--o{ FactTransactions : MerchantID
-    DimCategory ||--o{ FactTransactions : CategoryID
-```
+
+| Component | Count |
+|-----------|------:|
+| 🗂️ Total Tables | **9** |
+| 📘 Dimension Tables | **5** |
+| 📊 Fact Tables | **4** |
+| 🔗 Relationships | **11** |
+| ⚡ Data Model | **Star Schema** |
+  
+---
+
+🚀 Architecture Highlights
+
+• Production Style Star Schema
+
+• Centralized Semantic Model
+
+• Optimized Filter Propagation
+
+• Reusable DAX Measure Layer
+
+• Enterprise Ready Reporting Architecture
+
+
 
 ![Data Model Diagram](./Images/05-data-model-diagram.png)
 
