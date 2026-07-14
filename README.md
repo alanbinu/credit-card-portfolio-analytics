@@ -145,10 +145,54 @@ All 33 live in a single disconnected Calculation Table — one place to find eve
 
 ---
 
-## Under the Hood
+# 🏛️ Enterprise Data Model
 
-<details>
-<summary><b>Data Model — Star Schema (9 tables, 11 relationships)</b></summary>
+<p align="center">
+
+Production ready **Star Schema Architecture** designed for scalable analytics, centralized business logic, and high performance Power BI reporting.
+
+</p>
+
+<p align="center">
+<img src="./Images/star-schema-architecture.png" width="100%" alt="Enterprise Star Schema Architecture">
+</p>
+
+The semantic model follows a **Star Schema** architecture with **5 Dimension Tables**, **4 Fact Tables**, and **11 Relationships**, creating a governed analytical layer that supports reusable DAX measures, fast filtering, and enterprise scale reporting.
+
+Unlike a flat spreadsheet model, this design separates descriptive dimensions from transactional facts, improving performance, maintainability, and scalability.
+
+The Power BI semantic model is built using a **Star Schema** consisting of **5 Dimension Tables**, **4 Fact Tables**, and **11 Relationships**. This architecture centralizes business logic, improves query performance, and provides a scalable foundation for DAX calculations and interactive reporting.
+
+### Architecture Summary
+
+- 🗂️ **9 Tables**
+- 📘 **5 Dimension Tables**
+- 📊 **4 Fact Tables**
+- 🔗 **11 Relationships**
+- ⚡ **Production Ready Star Schema**
+  
+### Dimension Tables
+
+- 👤 **DimCustomer**
+- 💳 **DimCard**
+- 📅 **DimDate**
+- 🏪 **DimMerchant**
+- 📂 **DimCategory**
+
+### Fact Tables
+
+- 💰 **FactTransactions**
+- 💳 **FactPayments**
+- 📈 **FactUtilization**
+- ⚠️ **FactRiskProfile**
+
+---
+
+> 💡 Every Power BI report, KPI, and DAX measure in this project is powered by this centralized semantic model, ensuring consistent business logic across all dashboards.
+
+
+> The Star Schema separates descriptive attributes from transactional facts, enabling faster filtering, simpler DAX measures, and a governed semantic layer for enterprise reporting.
+
 
 5 dimension tables, 4 fact tables, joined on single-column keys with one deliberate exception:
 
