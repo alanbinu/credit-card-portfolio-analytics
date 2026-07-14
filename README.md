@@ -33,19 +33,19 @@ Transforming **150,000+ financial records** into executive ready business intell
 
 ---
 
-## See It First
+## 📊 Dashboard Preview
+
+<p align="center">
+  <img src="./Images/dashboard-preview.png" width="100%" alt="Power BI Dashboard Preview">
+</p>
 
 <div align="center">
 
-![Executive Overview](./Images/01-executive-overview.png)
-
-![Spend Analytics](./Images/02-spend-analytics.png)
-
-![Risk Analytics](./Images/03-risk-analytics.png)
-
-![Customer Analytics](./Images/04-customer-analytics.png)
+**Four interactive Power BI dashboards built on a unified star schema, delivering executive reporting, portfolio performance analysis, credit risk intelligence, and customer segmentation through a single Business Intelligence platform.**
 
 </div>
+
+---
 
 ---
 
