@@ -22,7 +22,6 @@ Enterprise grade technical documentation covering the complete lifecycle of a Mi
 | **Document Type** | Enterprise Documentation Portal |
 | **Scope** | Complete `Documentation/` Knowledge Base |
 | **Documents** | **19 Technical Documents** |
-| **Documentation Size** | **3,214+ Lines** |
 | **Platform** | Microsoft Power BI |
 | **Version** | 2.1 |
 | **Related Resource** | [Repository README](../README.md) |
