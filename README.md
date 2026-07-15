@@ -33,6 +33,15 @@ Transforming **150,000+ financial records** into executive ready business intell
 
 ---
 
+## ✨ Project Highlights
+
+- Enterprise Power BI solution built using a **5 Dimension, 4 Fact Star Schema**
+- Processes **150,000+ financial records** across customer, transaction, payment, utilization, and risk domains
+- Developed **33 production-ready DAX measures** using reusable calculation patterns
+- Designed **4 interactive dashboards** for Executive, Product, Risk, and Customer Analytics
+- Comprehensive **19-document enterprise documentation suite**
+- Implements Power Query ETL, semantic modeling, and performance optimization best practices
+
 ## 📊 Dashboard Preview
 
 <p align="center">
@@ -241,6 +250,43 @@ A payment-to-spend ratio was also caught surfacing above 100% during validation 
 └── LICENSE
 ```
 
+## 📚 Enterprise Documentation Suite
+
+This repository includes a comprehensive documentation package covering the complete Business Intelligence lifecycle.
+
+| Document | Purpose |
+|-----------|---------|
+| Business Requirements | Business objectives and stakeholder requirements |
+| Architecture | Semantic model and solution architecture |
+| Data Dictionary | Complete metadata reference |
+| Data Sources | Source system inventory |
+| DAX Measures | Technical documentation for all measures |
+| Dashboard Guide | Dashboard walkthrough and business interpretation |
+| KPIs & Business Metrics | Business metric definitions |
+| Power Query Transformations | ETL and transformation logic |
+| Technical Design | Engineering decisions |
+| Performance Optimization | VertiPaq and DAX optimization |
+| Lessons Learned | Project retrospective |
+| Project Roadmap | Future enhancements |
+| Data Model | Relationship and semantic model |
+| DAX Patterns | Reusable DAX techniques |
+| Data Lineage | End-to-end data flow |
+| Testing & Validation | Quality assurance |
+| Deployment Guide | Deployment instructions |
+| Project Structure | Repository organization |
+| Change Log | Version history |
+
+### Repository Statistics
+
+| Component | Count |
+|------------|------:|
+| Documentation Files | 19 |
+| Dashboard Pages | 4 |
+| DAX Measures | 33 |
+| Tables | 9 |
+| Relationships | 11 |
+| Data Sources | 9 |
+| Records | 150,000+ |
 
 ## 🚀 Getting Started
 
@@ -275,9 +321,37 @@ Open the `.pbix` in Power BI Desktop → repoint the Power Query source files wh
 
 ---
 
+## 🛠 Skills Demonstrated
+
+### Business Intelligence
+
+- Power BI Desktop
+- Power Query
+- DAX
+- Data Modeling
+- Star Schema Design
+- ETL Development
+- Dashboard Design
+
+### Analytics
+
+- Credit Risk Analytics
+- Customer Segmentation
+- Portfolio Performance Analysis
+- KPI Development
+- Executive Reporting
+
+### Engineering
+
+- Semantic Modeling
+- Performance Optimization
+- Data Governance
+- Technical Documentation
+- Git & GitHub
+
 ## 👨‍💻 About the Author
 
-Developed independently as a portfolio project to demonstrate enterprise Business Intelligence development using Microsoft Power BI, Power Query, dimensional modeling, semantic model design, and production ready DAX.
+This project was independently designed and implemented to demonstrate end-to-end Business Intelligence solution development using Microsoft Power BI. It showcases data modeling, ETL with Power Query, DAX engineering, semantic modeling, dashboard design, performance optimization, and enterprise technical documentation within a production-style analytics solution.
 
 <div align="center">
 
@@ -305,7 +379,13 @@ Every visualization, DAX measure, data model, and design decision in this reposi
 
 If this project inspired you, helped you, or you simply enjoyed exploring it, a ⭐ on the repository would mean a lot and motivates me to keep building, learning, and sharing more projects with the community.
 
-### 🌟 Happy Learning • Happy Building • Happy Analyzing 📊
+## ⭐ Support the Project
+
+If you found this repository helpful or interesting, consider giving it a ⭐.
+
+Feedback, suggestions, and contributions are always welcome.
+
+Thank you for taking the time to explore this project.
 
 ---
 
