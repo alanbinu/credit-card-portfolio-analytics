@@ -105,7 +105,6 @@ If the repository README is the product page, this folder is the engineering des
 | 18 | [Deployment Guide](./18_Deployment_Guide.md) | Step-by-step setup from clean checkout to a refreshed, working report | Power BI Developer, Data Engineer | 14 |
 | 19 | [Project Structure](./19_Project_Structure.md) | Exhaustive file-and-folder inventory of the repository | New Contributor, Reviewer | 15 |
 
-> **Note:** This folder also contains [`RELEASE_READINESS_REPORT.md`](./RELEASE_READINESS_REPORT.md), a point-in-time audit of this documentation set's completeness. It is not part of the numbered reading order above — it's a meta-document *about* this documentation, not part of the solution's technical record.
 
 <details>
 <summary><b>Why documents 14–19 aren't numbered 03a, 05a, etc.</b></summary>
