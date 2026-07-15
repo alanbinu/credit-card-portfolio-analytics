@@ -21,36 +21,6 @@ Column-by-column business definitions live in [Data Dictionary.md](./03_Data_Dic
 
 The model is a single, ungoverned-by-snowflaking star schema: five dimension tables surround four fact tables, with all cross-table joins resolved through a single hop (with one two-table exception described in Section 4).
 
-```mermaid
-flowchart TB
-    subgraph Dims["Dimensions"]
-        DC[DimCustomer]
-        DCa[DimCard]
-        DM[DimMerchant]
-        DCat[DimCategory]
-        DD[DimDate]
-    end
-
-    subgraph Facts["Facts"]
-        FT[FactTransactions]
-        FP[FactPayments]
-        FU[FactUtilization]
-        FR[FactRiskProfile]
-    end
-
-    DC --> FT
-    DC --> FP
-    DC --> FU
-    DC <-.bidirectional.-> FR
-    DCa --> FT
-    DCa --> FP
-    DCa --> FU
-    DD --> FT
-    DD --> FP
-    DM --> FT
-    DCat --> FT
-    DM --> DCat
-```
 
 > **Design Decision:** A star schema — rather than a snowflake or a single flat table — was chosen because it keeps every fact table one hop from the dimension a report author needs to slice by, while still isolating descriptive attributes from transactional events. The full alternatives-considered analysis lives in [Architecture.md §3](./02_Architecture.md); this document assumes that decision and documents its consequences at the table level.
 
@@ -99,15 +69,18 @@ Eleven fact-to-dimension relationships, plus the one dimension-to-dimension rela
 | Bidirectional is the deliberate, scoped exception | `FactRiskProfile ↔ DimCustomer` only | Lets a customer-level slicer (segment, state) narrow the risk-category breakdown on the Risk Analytics page. Scoped to this single relationship so the behavior doesn't propagate into transaction, payment, or utilization facts. |
 | No inactive relationships | N/A — none exist in the current model | There is no role-playing dimension scenario (e.g., a second `DimDate` relationship for `DueDate` vs. `TransactionDate`) in the current scope; if one is introduced, it must use `USERELATIONSHIP()` explicitly rather than relying on an ambiguous default. |
 
+
 ```mermaid
 sequenceDiagram
-    participant Slicer as DimCustomer Slicer (State)
+    participant Slicer as "DimCustomer Slicer"
     participant FR as FactRiskProfile
     participant FT as FactTransactions
-    Slicer->>FR: Filters propagate (bidirectional relationship)
-    Slicer->>FT: Filters propagate (single direction: Dim -> Fact)
-    FR-->>Slicer: No propagation back (would require FT to filter Dim, which never happens)
-    Note over Slicer,FT: Only the Risk relationship is bidirectional;<br/>every other fact stays single-direction.
+
+    Slicer->>FR: Bidirectional filter propagation
+    Slicer->>FT: Single direction filter propagation
+
+    Note over Slicer,FT: Only FactRiskProfile uses bidirectional filtering
+    Note over Slicer,FT: All other relationships remain single direction
 ```
 
 ## 6. Slowly Changing Attributes
