@@ -75,17 +75,19 @@ A complete high resolution export is also available in:
 
 ## 🗂️ Folder Structure
 
-```
+```text
 PowerBI/
 │
-├── README.md                                          # This file
-└── Credit_Card_Analytics_DashbBoard_Project.pbix       # Complete Power BI solution
+├── README.md                                    # This documentation
+├── Credit_Card_Analytics_DashbBoard_Project.pbix # Complete Power BI solution
+└── credit-card-portfolio-analytics.pdf          # Exported dashboard preview
 ```
 
 | File | Purpose |
-|---|---|
-| `README.md` | Landing page for this folder — architecture, features, and usage instructions |
-| `Credit_Card_Analytics_DashbBoard_Project.pbix` | The full solution: Power Query, semantic model, DAX measures, and 4 report pages, all in one file |
+|------|---------|
+| `README.md` | Landing page for this folder, architecture, features, and usage instructions |
+| `Credit_Card_Analytics_DashbBoard_Project.pbix` | Complete Power BI solution containing the semantic model, Power Query transformations, DAX measures, and all report pages |
+| `credit-card-portfolio-analytics.pdf` | High resolution PDF containing the Executive Overview, Spend Analytics, Risk Analytics, and Customer Analytics dashboard pages for quick preview without opening Power BI Desktop |
 
 ---
 
@@ -303,15 +305,41 @@ Full detail in [Project Roadmap.md](../Documentation/12_Project_Roadmap.md).
 
 <div align="center">
 
-## ❤️ Thank You
+---
 
-Thank you for exploring this Power BI solution.
+<div align="center">
 
-This `.pbix` file represents the complete analytical solution — the semantic model, the Power Query ETL layer, the DAX calculation layer, and four interactive dashboards, all in one place.
+# ❤️ Thank You for Exploring
 
-**Continue Exploring**
+### Credit Card Portfolio Analytics & Risk Intelligence
 
-**[📁 Repository](../README.md)** &nbsp;•&nbsp; **[📖 Documentation](../Documentation/README.md)** &nbsp;•&nbsp; **[📂 Dataset](../Data/README.md)**
+*An end to end Business Intelligence solution demonstrating enterprise data modeling, Power Query ETL, advanced DAX, and interactive Power BI reporting.*
+
+<br>
+
+### 🚀 Continue Exploring
+
+| 📁 Repository | 📊 Dashboard Preview | 📂 Dataset | 📖 Documentation |
+|:-------------:|:-------------------:|:----------:|:----------------:|
+| [Home](../README.md) | [PDF Preview](./credit-card-portfolio-analytics.pdf) | [Dataset](../Data/README.md) | [Documentation](../Documentation/README.md) |
+
+<br>
+
+---
+
+### 💡 Skills Demonstrated
+
+**Power BI** • **Power Query (M)** • **DAX** • **Star Schema Modeling** • **Data Visualization** • **Business Intelligence** • **Credit Risk Analytics** • **Dashboard Design**
+
+---
+
+*"Transforming raw financial data into actionable business intelligence through modern analytics and enterprise reporting."*
+
+<br>
+
+⭐ **If you found this project interesting, consider giving the repository a star.**
+
+<br>
 
 *Built with ❤️ using Power BI, Power Query, DAX, and enterprise dimensional modeling.*
 
