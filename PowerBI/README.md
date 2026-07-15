@@ -49,35 +49,29 @@ This one file **is** the entire analytical solution. Opening it in Power BI Desk
 There is no separate `.pbit` template, no external dataset file, and no shared Power BI Service dataset — model, DAX, and reports are packaged together in this one binary.
 
 ---
-## 📸 Dashboard Preview
-
-### Executive Overview
-
-![Executive Overview](../Images/Executive_Overview.png)
-
 ---
 
-### Spend Analytics
+## 📸 Solution Preview
 
-![Spend Analytics](../Images/Spend_Analytics.png)
+> A consolidated preview of all four interactive Power BI dashboards included in this solution.
 
----
+<p align="center">
+  <img src="../Images/powerbi-dashboard-preview.png"
+       alt="Credit Card Portfolio Analytics Dashboard Preview"
+       width="100%">
+</p>
 
-### Risk Analytics
+The solution consists of four interactive report pages:
 
-![Risk Analytics](../Images/Risk_Analytics.png)
+- 📊 Executive Overview
+- 💳 Spend Analytics
+- ⚠️ Risk Analytics
+- 👥 Customer Analytics
 
----
+A complete high resolution export is also available in:
 
-### Customer Analytics
+📄 **credit-card-portfolio-analytics.pdf**
 
-![Customer Analytics](../Images/Customer_Analytics.png)
-
-## 📄 Dashboard Export
-
-A high resolution PDF containing all report pages is included for easy viewing and sharing.
-
-📁 `credit-card-portfolio-analytics.pdf`
 
 ## 🗂️ Folder Structure
 
